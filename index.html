@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Leonel Popatco — E‑Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0b0d12; --panel:#11141a; --text:#e6e9ef; --muted:#aab2c5; --primary:#6ea8fe; --primary-600:#528ef0; --border:#202636; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--text);background:radial-gradient(1200px 600px at 80% -10%,#142035 0%,rgba(20,32,53,0) 60%),var(--bg);line-height:1.6}
+    img{max-width:100%;display:block}
+    .container{width:min(1100px,92%);margin:0 auto}
+    .section{padding:64px 0}
+    .section h2{margin:0 0 20px;font-size:28px;letter-spacing:.3px}
+    .meta-note{color:var(--muted);font-size:14px}
+    .site-header{position:sticky;top:0;z-index:10;background:rgba(11,13,18,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo-dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#9bd1ff);box-shadow:0 0 20px rgba(110,168,254,.7)}
+    .brand-name{letter-spacing:.3px}
+    .nav{display:flex;gap:18px}
+    .nav a{color:var(--text);text-decoration:none;font-weight:600;font-size:14px;opacity:.9}
+    .nav a:hover{color:var(--primary)}
+    .hero{padding:72px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+    .hero-text h1{margin:0 0 8px;font-size:42px;letter-spacing:.2px}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .cta-row{display:flex;gap:12px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;border:1px solid var(--border)}
+    .btn.primary{background:var(--primary);color:#081019;border-color:transparent}
+    .btn.primary:hover{background:var(--primary-600)}
+    .btn.ghost{color:var(--text)}
+    .hero-photo{justify-self:end}
+    .hero-photo img{width:240px;height:240px;object-fit:cover;border-radius:20px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .skills-list{display:flex;flex-direction:column;gap:14px}
+    .skill{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:10px 12px}
+    .skill-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .skill-name{font-weight:700;font-size:14px}
+    .skill-val{color:var(--muted);font-weight:700;font-size:12px}
+    .bar{height:8px;background:#0e1220;border:1px solid var(--border);border-radius:999px;overflow:hidden}
+    .bar > span{display:block;height:100%;background:linear-gradient(90deg,#5ce1e6,var(--primary));width:0}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project-card{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px}
+    .project-title{margin:0;font-size:18px}
+    .project-desc{color:var(--muted);font-size:14px;margin:0}
+    .project-links{margin-top:8px;display:flex;gap:10px}
+    .project-links a{color:var(--primary);font-weight:600;text-decoration:none}
+    .certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .cert{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+    .cert img{aspect-ratio:4/3;object-fit:cover;width:100%}
+    .contact-box{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px}
+    .contact-box a{color:var(--primary);text-decoration:none}
+    .site-footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted);font-size:14px}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-photo{justify-self:start}.projects-grid{grid-template-columns:repeat(2,1fr)}.certs-grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:680px){.projects-grid{grid-template-columns:1fr}.certs-grid{grid-template-columns:repeat(2,1fr)}.hero-text h1{font-size:34px}}
+    /* preset bar widths (no JS) */
+    .w-50{width:50%}.w-55{width:55%}.w-40{width:40%}.w-30{width:30%}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo-dot" aria-hidden="true"></div>
+        <span class="brand-name" id="brandName">Leonel Popatco</span>
+      </div>
+      <nav class="nav" id="siteNav">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 id="heroName">Leonel Popatco</h1>
+          <p class="subtitle">Aspiring Developer • Problem Solver • Lifelong Learner</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Contact</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img id="profileImage" src="assets/nel.jfif" alt="Portrait of Leonel Popatco" />
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p>
+          Motivated and detail-oriented professional with a strong commitment to excellence and continuous learning.
+          Seeking to contribute my expertise and enthusiasm to a dynamic organization where I can grow and add value.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-list">
+          <div class="skill">
+            <div class="skill-head">
+              <span class="skill-name">HTML</span>
+              <span class="skill-val">50%</span>
+            </div>
+            <div class="bar"><span class="w-50"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <span class="skill-name">C++</span>
+              <span class="skill-val">55%</span>
+            </div>
+            <div class="bar"><span class="w-55"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <span class="skill-name">PHP</span>
+              <span class="skill-val">50%</span>
+            </div>
+            <div class="bar"><span class="w-50"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <span class="skill-name">Python</span>
+              <span class="skill-val">40%</span>
+            </div>
+            <div class="bar"><span class="w-40"></span></div>
+          </div>
+          <div class="skill">
+            <div class="skill-head">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-val">30%</span>
+            </div>
+            <div class="bar"><span class="w-30"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3 class="project-title">AIESCCS.COM</h3>
+            <p class="project-desc">This official system portal at AIESCCS.com streamlines student access, attendance, and laboratory monitoring for BBS students at Santa Rita College. It ensures secure, accurate, and efficient tracking for lab entry and exit, reduces manual work, and provides faculty with tools for easy monitoring and reporting.</p>
+            <div class="project-links">
+              <a href="#">View</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">Project Two</h3>
+            <p class="project-desc">Short description of the project and the technologies used.</p>
+            <div class="project-links">
+              <a href="#">View</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <h3 class="project-title">Project Three</h3>
+            <p class="project-desc">Short description of the project and the technologies used.</p>
+            <div class="project-links">
+              <a href="#">View</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates" class="section">
+      <div class="container">
+        <h2>Certificates</h2>
+        <p class="meta-note">Images loaded from <code>assets/certificates</code>.</p>
+        <div class="certs-grid">
+          <div class="cert"><img src="assets/certificates/ES.PNG" alt="Certificate ES"></div>
+          <div class="cert"><img src="assets/certificates/intro.PNG" alt="Certificate Intro"></div>
+          <div class="cert"><img src="assets/certificates/PMI.jfif" alt="Certificate PMI"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-box">
+          <p>Email: <a href="mailto:leonelpopatco16@gmail.com">leonelpopatco16@gmail.com</a></p>
+          <p>Facebook: <a href="https://www.facebook.com/leonel.popatco.2024" target="_blank" rel="noopener">facebook.com/leonelpopatco</a></p>
+          <p>Phone Number: <a href="tel:09069329185">09069329185</a></p>
+          <p>Location: Philippines</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 Leonel Popatco. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
